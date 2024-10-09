@@ -14,10 +14,40 @@ utilise les technologies suivantes :
 
 Voici une liste des fonctionnalités à implémenter :
 
-1. Flask
-2. Jinja
-3. Formulaires (méthode GET et POST)
-4. GET et POST
-5. JavaScript
-6. CSS
-7. JSON
+1. Formulaires (méthode GET et POST)
+0. GET et POST
+0. JavaScript
+0. CSS
+0. JSON
+
+
+## Le site web
+
+- Le site est un site de vente immitant un site sur le dark web.
+- Il y vendra donc des produits et services.
+- Possibilité de s'inscrire et de se connecter; 
+Les utilisateur pourront ajouter de l'argent sur
+leur compte et enregistrer leur cartes.
+- partie communauté ou utilisateur peux vendre des truc?
+
+## Diferent type de produit
+
+- Drogues
+- Armes
+- Cartes, passeport, permis
+- Service: Hack, tueur a gage, etc
+- Autre
+- Communauté: Vente des clients + chat?
+
+
+## Les pages
+
+- Page d'accueil
+- Page de connexion
+- Page d'inscription
+- Page de produit
+- Page de panier
+- Page de paiement
+- Page de profil
+- Page de communauté
+- Page de contact
