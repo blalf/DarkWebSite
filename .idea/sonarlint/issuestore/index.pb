@@ -7,3 +7,5 @@ D
 templates/index.html,f\6\f69b8ce2e31684ae06f1b3e84821e07e3dfddb2f
 A
 static/styles.css,f\3\f35a01c46898352132ea5a64325a33d5080f4a64
+C
+templates/base.html,d\a\da7c237b85a69c00a9ab8c189bf63e22070fcac3

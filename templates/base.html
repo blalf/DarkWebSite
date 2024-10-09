@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}DarkWebSite{% endblock %}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <header>
+    <div id="header-content">
+        <div id="auth-links">
+            <a href="/login">Login</a>
+            <a href="/register">Register</a>
+        </div>
+    </div>
+</header>
+    <div id="sidebar">
+        <ul>
+            <li class="top-margin"><a href="/">Accueil</a></li>
+
+            <li><a href="/drogues">Drogues</a></li>
+            <li><a href="/armes">Armes</a></li>
+            <li><a href="/papiers">papiers</a></li>
+            <li><a href="/services">Services</a></li>
+            <li><a href="/autres">Autres</a></li>
+
+            <li  class="bot-margin"><a href="/communaute">Communauté</a></li>
+            <li><a href="/contact">Contact</a></li>
+        </ul>
+    </div>
+    <div id="content">
+        {% block content %}
+        <!-- Le contenu spécifique à chaque page sera inséré ici -->
+        {% endblock %}
+    </div>
+</body>
+</html>

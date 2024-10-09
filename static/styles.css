@@ -4,12 +4,31 @@ body {
     font-family: Arial, sans-serif;
 }
 
+h1 {
+    text-align: center;
+}
+
+a {
+    color: #5d2f86; /* Change la couleur des liens en violet */
+    text-decoration: none; /* Supprime le soulignement des liens */
+}
+
+a:hover {
+    color: #77588c; /* Change la couleur des liens au survol en indigo */
+}
+
+
+
+
+
+
+
 #sidebar {
     position: fixed;
     width: 200px;
-    height: 100%;
     background-color: #1a1a1a;
     overflow: auto;
+    border-radius: 10px; /* Ajoute des coins arrondis à la barre latérale */
 }
 
 #sidebar ul {
@@ -19,7 +38,7 @@ body {
 
 #sidebar ul li a {
     display: block;
-    padding: 10px;
+    padding: 20px; /* Augmentez cette valeur pour plus d'espace entre les liens */
     color: #a3a3a3;
     text-decoration: none;
 }
@@ -32,4 +51,46 @@ body {
 #content {
     margin-left: 200px;
     padding: 10px;
+}
+
+#header-content {
+    padding-right: 10px;
+    padding-top: 10px;
+}
+
+#auth-links {
+    display: flex;
+    flex-direction: row-reverse;
+    gap: 10px;
+}
+
+#auth-links a {
+    color: #dadada; /* Change la couleur des liens en blanc */
+    text-decoration: none; /* Supprime le soulignement des liens */
+}
+
+#auth-links a:hover {
+    color: #5d2f86; /* Change la couleur des liens au survol en violet */
+    text-decoration: underline; /* Souligne les liens au survol */
+}
+
+
+
+
+
+.top-margin {
+    margin-bottom: 50px; /* Ajustez cette valeur pour contrôler l'espace */
+}
+
+.bot-margin {
+    margin-top: 50px; /* Ajustez cette valeur pour contrôler l'espace */
+}
+
+.text_link {
+    color: #745c8d; /* Change la couleur des liens en violet */
+    text-decoration: underline; /* Souligne les liens */
+}
+
+.text_link:hover {
+    color: #8d5c86; /* Change la couleur des liens au survol en indigo */
 }

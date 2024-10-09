@@ -1,28 +1,22 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mon Projet</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
-</head>
-<body>
-    <div id="sidebar">
-        <ul>
-            <li><a href="/">Accueil</a></li>
-            <li><a href="/connexion">Connexion</a></li>
-            <li><a href="/inscription">Inscription</a></li>
-            <li><a href="/produit">Produit</a></li>
-            <li><a href="/panier">Panier</a></li>
-            <li><a href="/paiement">Paiement</a></li>
-            <li><a href="/profil">Profil</a></li>
-            <li><a href="/communaute">Communauté</a></li>
-            <li><a href="/contact">Contact</a></li>
-        </ul>
-    </div>
-    <div id="content">
-        <h1>Bienvenue sur Mon Projet</h1>
-        <p>Ceci est la page d'accueil.</p>
-    </div>
-</body>
-</html>
+{% extends "base.html" %}
+
+{% block title %}Accueil{% endblock %}
+
+{% block content %}
+    <h1>Bienvenue sur DarkWebSite</h1>
+
+    <h2>Mise en contexte</h2>
+    <p>Nous avons créé ce site web dynamique pour le module WEB en informatique.
+    Nous sommes deux étudiants en informatique et ne vendons pas réellement les produits affichés ici,
+    merci de votre compréhension. La page <a class="text_link" href="/contact">contact</a> contient nos informations si vous souhaitez faire une réclamation.</p>
+
+    <h2>Nos catégories de produits</h2>
+    <ul>
+        <li><a href="/drogues">Drogues</a></li>
+        <li><a href="/armes">Armes</a></li>
+        <li><a href="/papiers">Papiers</a></li>
+        <li><a href="/services">Services</a></li>
+        <li><a href="/autres">Autres</a></li>
+        <li><a href="/communaute">Communauté</a></li>
+    </ul>
+{% endblock %}

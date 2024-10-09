@@ -36,7 +36,7 @@ leur compte et enregistrer leur cartes.
 - Armes
 - Cartes, passeport, permis
 - Service: Hack, tueur a gage, etc
-- Autre
+- Autre: faux billets
 - Communauté: Vente des clients + chat?
 
 
@@ -51,3 +51,5 @@ leur compte et enregistrer leur cartes.
 - Page de profil
 - Page de communauté
 - Page de contact
+
+ps: chat-gpt à aider :)
