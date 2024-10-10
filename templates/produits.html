@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+
+{% block title %}DarkWebSite | {{ category.name }}{% endblock %}
+
+{% block content %}
+    <h1 class="title">{{ category.name }}</h1>
+    <div class="product-grid">
+        {% for product in category.products %}
+            <div class="product-item">
+                <h3>{{ product.name }}</h3>
+                <img src="{{ url_for('static', filename=product.image) }}" alt="{{ product.name }}">
+                <p>Description: {{ product.description }}</p>
+                {% if 'quantity' in product %}
+                    <p>Quantité: {{ product.quantity }}</p>
+                {% endif %}
+                <p>Vendeur: {{ product.vendor }}</p>
+                <p>Temps de livraison: {{ product.delivery_time }}</p>
+                <p>Prix: {{ product.price }} €</p>
+                <button onclick="addToCart({{ product.id }})">Ajouter au panier</button>
+            </div>
+        {% endfor %}
+    </div>
+    <script>
+        function addToCart(productId) {
+            // Function to add product to cart
+            console.log("Produit ajouté au panier: " + productId);
+        }
+    </script>
+{% endblock %}

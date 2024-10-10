@@ -10,23 +10,21 @@
     <header>
     <div id="header-content">
         <div id="auth-links">
-            <a href="/login">Login</a>
             <a href="/register">Register</a>
+            <a href="/login">Login</a>
         </div>
     </div>
 </header>
     <div id="sidebar">
         <ul>
-            <li class="top-margin"><a href="/">Accueil</a></li>
-
-            <li><a href="/drogues">Drogues</a></li>
-            <li><a href="/armes">Armes</a></li>
-            <li><a href="/papiers">papiers</a></li>
-            <li><a href="/services">Services</a></li>
-            <li><a href="/autres">Autres</a></li>
-
-            <li  class="bot-margin"><a href="/communaute">Communauté</a></li>
-            <li><a href="/contact">Contact</a></li>
+            <li class="top-margin"><a href="/" class="{% if request.path == '/' %}active{% endif %}">Accueil</a></li>
+            <li><a href="/drogues" class="{% if request.path == '/drogues' %}active{% endif %}">Drogues</a></li>
+            <li><a href="/armes" class="{% if request.path == '/armes' %}active{% endif %}">Armes</a></li>
+            <li><a href="/papiers" class="{% if request.path == '/papiers' %}active{% endif %}">Papiers</a></li>
+            <li><a href="/services" class="{% if request.path == '/services' %}active{% endif %}">Services</a></li>
+            <li><a href="/autres" class="{% if request.path == '/autres' %}active{% endif %}">Autres</a></li>
+            <li class="bot-margin"><a href="/communaute" class="{% if request.path == '/communaute' %}active{% endif %}">Communauté</a></li>
+            <li><a href="/contact" class="{% if request.path == '/contact' %}active{% endif %}">Contact</a></li>
         </ul>
     </div>
     <div id="content">

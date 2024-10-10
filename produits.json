@@ -1,0 +1,81 @@
+{
+    "categories": [
+        {
+            "id": 1,
+            "name": "Drogues",
+            "products": [
+                {
+                    "id": 1,
+                    "name": "Produit 1",
+                    "description": "Description du produit 1",
+                    "quantity": 10,
+                    "vendor": "Vendeur 1",
+                    "delivery_time": "2 jours",
+                    "price": 100.0,
+                    "image": "assets/item_img/drug.png"
+                },
+                {
+                    "id": 2,
+                    "name": "Produit 2",
+                    "description": "Description du produit 2",
+                    "quantity": 5,
+                    "vendor": "Vendeur 2",
+                    "delivery_time": "3 jours",
+                    "price": 150.0,
+                    "image": "assets/item_img/drug.png"
+                }
+            ]
+        },
+        {
+            "id": 2,
+            "name": "Armes",
+            "products": [
+                {
+                    "id": 3,
+                    "name": "Produit 3",
+                    "description": "Description du produit 3",
+                    "quantity": 20,
+                    "vendor": "Vendeur 3",
+                    "delivery_time": "1 semaine",
+                    "price": 200.0,
+                    "image": "assets/item_img/armes.jpg"
+                },
+                {
+                    "id": 4,
+                    "name": "Produit 4",
+                    "description": "Description du produit 4",
+                    "quantity": 15,
+                    "vendor": "Vendeur 4",
+                    "delivery_time": "5 jours",
+                    "price": 250.0,
+                    "image": "assets/item_img/armes.jpg"
+                }
+            ]
+        },
+        {
+            "id": 3,
+            "name": "Papiers",
+            "products": [
+                {
+                    "id": 5,
+                    "name": "Produit 5",
+                    "description": "Description du produit 5",
+                    "quantity": 30,
+                    "vendor": "Vendeur 5",
+                    "delivery_time": "4 jours",
+                    "price": 50.0,
+                    "image": "assets/item_img/paper.png"
+                },
+                {
+                    "id": 6,
+                    "name": "Produit 6",
+                    "description": "Description du produit 6",
+                    "vendor": "Vendeur 6",
+                    "delivery_time": "2 jours",
+                    "price": 75.0,
+                    "image": "assets/item_img/paper.png"
+                }
+            ]
+        }
+    ]
+}
