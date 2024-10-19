@@ -8,13 +8,36 @@
 </head>
 <body>
     <header>
-    <div id="header-content">
-        <div id="auth-links">
-            <a href="/register">Register</a>
-            <a href="/login">Login</a>
+        <div id="header-content">
+            <div id="auth-links">
+                {% if 'username' in session %}
+                    <a href="/logout">Logout</a>
+                    <a href="/account" class="username">{{ session['username'] }}</a>
+                {% else %}
+                    <a href="/register">Register</a>
+                    <a href="#" id="loginBtn">Login</a>
+                {% endif %}
+            </div>
+        </div>
+    </header>
+    <div id="loginPopup" class="popup">
+        <div class="popup-content" id = "div_login">
+            <span class="close">&times;</span>
+            <form action="/login" method="post" id="form_login">
+
+                <div id="error_message" style="color: red; font-weight: bold; text-align: center"></div>
+
+                <label for="username">Username:</label>
+                <input type="text" id="username" name="username" list="usernameList" required>
+                <datalist id="usernameList"></datalist>
+
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password" required>
+
+                <button type="submit">Login</button>
+            </form>
         </div>
     </div>
-</header>
     <div id="sidebar">
         <ul>
             <li class="top-margin"><a href="/" class="{% if request.path == '/' %}active{% endif %}">Accueil</a></li>
@@ -32,5 +55,6 @@
         <!-- Le contenu spécifique à chaque page sera inséré ici -->
         {% endblock %}
     </div>
+    {% block script %}<script src="{{ url_for('static', filename='scripts.js') }}"></script>{% endblock %}
 </body>
 </html>

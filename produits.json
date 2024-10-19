@@ -76,6 +76,56 @@
                     "image": "assets/item_img/paper.png"
                 }
             ]
+        },
+        {
+            "id": 4,
+            "name": "Services",
+            "products": [
+                {
+                    "id": 7,
+                    "name": "Produit 7",
+                    "description": "Description du service 1",
+                    "vendor": "Vendeur 7",
+                    "delivery_time": "1 jour",
+                    "price": 300.0,
+                    "image": "assets/item_img/service.png"
+                },
+                {
+                    "id": 8,
+                    "name": "Produit 8",
+                    "description": "Description du service 2",
+                    "vendor": "Vendeur 8",
+                    "delivery_time": "2 jours",
+                    "price": 400.0,
+                    "image": "assets/item_img/service.png"
+                }
+            ]
+        },
+        {
+            "id": 5,
+            "name": "Autres",
+            "products": [
+                {
+                    "id": 9,
+                    "name": "Produit 9",
+                    "description": "Description du produit 7",
+                    "quantity": 50,
+                    "vendor": "Vendeur 9",
+                    "delivery_time": "3 jours",
+                    "price": 500.0,
+                    "image": "assets/item_img/other.png"
+                },
+                {
+                    "id": 10,
+                    "name": "Produit 10",
+                    "description": "Description du produit 8",
+                    "quantity": 25,
+                    "vendor": "Vendeur 10",
+                    "delivery_time": "4 jours",
+                    "price": 600.0,
+                    "image": "assets/item_img/other.png"
+                }
+            ]
         }
     ]
 }

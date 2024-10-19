@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+
+{% block title %}Inscription{% endblock %}
+
+{% block content %}
+    {% if error_message %}
+        <p style="color: red; font-weight: bold; text-align: center">{{ error_message }}</p>
+    {% endif %}
+    <form action="{{ url_for('register') }}" method="post" autocomplete="off" id="form_register">
+        <label for="username">Pseudo :</label>
+        <input type="text" id="username" name="username" list="usernameList" required />
+        <datalist id="usernameList"></datalist>
+
+
+        <label for="password">MDP :</label>
+        <input type="password" id="password" name="password" required />
+
+        <label for="address">Adresse :</label>
+        <input type="text" id="address" name="address" list="addressList" />
+
+        <label for="email">Email :</label>
+        <input type="email" id="email" name="email" />
+
+        <label for="credit_card_number">Num de carte bancaire :</label>
+        <input type="text" id="credit_card_number" name="credit_card_number" />
+
+        <button type="submit">S'inscrire</button>
+    </form>
+{% endblock %}
+
+{% block script %}<script src="{{ url_for('static', filename='register_script.js') }}"></script>{% endblock %}

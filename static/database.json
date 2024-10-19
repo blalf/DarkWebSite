@@ -1,0 +1,54 @@
+{
+    "users": [
+        {
+            "username": "user1",
+            "password": "user1",
+            "email": "",
+            "cart": [],
+            "credit_card_number": "",
+            "account_balance": 0,
+            "address": "",
+            "sales": []
+        },
+        {
+            "username": "test",
+            "password": "test",
+            "email": "",
+            "cart": [],
+            "credit_card_number": "17s",
+            "account_balance": 0,
+            "address": "",
+            "sales": []
+        },
+        {
+            "username": "dfdf",
+            "password": "df",
+            "email": "",
+            "cart": [],
+            "credit_card_number": "9999 9999 9999 9109 1209 1201 9201 9222 1",
+            "account_balance": 0,
+            "address": "",
+            "sales": []
+        },
+        {
+            "username": "477",
+            "password": "477",
+            "email": "",
+            "cart": [],
+            "credit_card_number": "777",
+            "account_balance": 0,
+            "address": "ds",
+            "sales": []
+        },
+        {
+            "username": "blalflegoat",
+            "password": "blalf",
+            "email": "",
+            "cart": [],
+            "credit_card_number": "",
+            "account_balance": 0,
+            "address": "",
+            "sales": []
+        }
+    ]
+}
