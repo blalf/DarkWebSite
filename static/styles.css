@@ -13,14 +13,50 @@ hr {
 }
 
 a {
-    color: #5d2f86; /* Change la couleur des liens en violet */
+    color: #82629b; /* Change la couleur des liens en violet */
     text-decoration: none; /* Supprime le soulignement des liens */
 }
 
 a:hover {
-    color: #77588c; /* Change la couleur des liens au survol en indigo */
+    color: #641a94; /* Change la couleur des liens au survol en indigo */
 }
 
+
+
+
+
+/* styles.css */
+#cart {
+    position: fixed;
+    right: 0;
+    top: 100px;
+    width: 150px; /* Reduced width */
+    background-color: #f9f9f9;
+    border: 1px solid #ccc;
+    padding: 10px;
+    border-radius: 10px;
+    z-index: 1000; /* Ensure it stays on top */
+}
+
+#cart h2 {
+    font-size: 1.2em;
+    margin-bottom: 10px;
+}
+
+#cart ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+#cart li {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+#cart img {
+    margin-right: 10px;
+}
 
 
 
@@ -55,8 +91,10 @@ a:hover {
     color: white; /* Couleur du texte pour l'élément actif */
 }
 
+/* styles.css */
 #content {
     margin-left: 200px;
+    margin-right: 160px; /* Add margin to the right to prevent overlap */
     padding: 10px;
 }
 
@@ -188,6 +226,10 @@ a:hover {
 
 .title {
     margin-bottom: 75px;
+}
+
+.title2 {
+    margin-top: 75px;
 }
 
 

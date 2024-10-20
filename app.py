@@ -4,6 +4,30 @@ import json
 app = Flask(__name__)
 app.secret_key = 'your_secret_key'  # Replace with a random secret key
 
+
+@app.context_processor
+def utility_processor():
+    def get_user_cart(username):
+        users = load_users()
+        user = next((user for user in users['users'] if user['username'] == username), None)
+        if user and 'cart' in user:
+            data = load_data()
+            cart_items = []
+            for key, quantity in user['cart'].items():
+                category_id, product_id = map(int, key.split('_'))
+                category = next((cat for cat in data['categories'] if cat['id'] == category_id), None)
+                if category:
+                    product = next((prod for prod in category['products'] if prod['id'] == product_id), None)
+                    if product:
+                        cart_items.append({
+                            'name': product['name'],
+                            'image': product['image'],
+                            'quantity': quantity
+                        })
+            return cart_items
+        return []
+    return dict(get_user_cart=get_user_cart)
+
 def load_data():
     with open('produits.json') as f:
         return json.load(f)
@@ -15,6 +39,7 @@ def load_users():
 def save_users(users):
     with open('static/database.json', 'w') as f:
         json.dump(users, f, indent=4)
+
 
 @app.route('/')
 def home():
@@ -58,12 +83,36 @@ def autres():
     CART IMPLEMENTATION
     
     obligation to be logged in to add to cart
-    add to cart: add a dict(tuple:number) (category_id, product_id): quantity to the user's cart
+    add to cart: add a dict(tuple:number) = (category_id, product_id):quantity to the user's cart
     remoove product from database + cart when bought
 
 '''
 
+@app.route('/add_to_cart', methods=['POST'])
+def add_to_cart():
+    if 'username' not in session:
+        return json.dumps({'success': False, 'message': 'User not logged in'}), 401, {'ContentType': 'application/json'}
 
+    category_id = request.form['category_id']
+    product_id = request.form['product_id']
+    quantity = int(request.form['quantity'])
+
+    users = load_users()
+    user = next((user for user in users['users'] if user['username'] == session['username']), None)
+
+    if user:
+        cart_item = f"{category_id}_{product_id}"
+        if 'cart' not in user:
+            user['cart'] = {}
+        if cart_item in user['cart']:
+            user['cart'][cart_item] += quantity
+        else:
+            user['cart'][cart_item] = quantity
+
+        save_users(users)
+        return json.dumps({'success': True, 'message': 'Item added to cart'}), 200, {'ContentType': 'application/json'}
+    else:
+        return json.dumps({'success': False, 'message': 'User not found'}), 404, {'ContentType': 'application/json'}
 
 
 

@@ -50,6 +50,23 @@
             <li><a href="/contact" class="{% if request.path == '/contact' %}active{% endif %}">Contact</a></li>
         </ul>
     </div>
+
+    {% if 'username' in session %}
+    <div id="cart">
+        <h2>Votre Panier</h2>
+        <ul>
+            {% with cart_items = get_user_cart(session['username']) %}
+                {% for item in cart_items %}
+                    <li>
+                        <img src="{{ url_for('static', filename=item.image) }}" alt="{{ item.name }}" width="50">
+                        <span>{{ item.name }} ({{ item.quantity }})</span>
+                    </li>
+                {% endfor %}
+            {% endwith %}
+        </ul>
+    </div>
+    {% endif %}
+
     <div id="content">
         {% block content %}
         <!-- Le contenu spécifique à chaque page sera inséré ici -->
