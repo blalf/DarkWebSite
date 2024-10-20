@@ -1,0 +1,21 @@
+
+
+Compte utilisateur:
+    Pseudo
+    MDP
+    Email
+
+    Chario
+    Num de carte bancaire
+    Argent sur le compte
+    Adresse
+
+    Vente par utilisateur donc onglet [vos ventes]
+
+
+
+Register:
+    formulaire avec methode POST qui va update database.json si
+        le pseudo entré n'existe pas déjà
+
+    entré: pseudo, mdp, email[optionnel], num de carte bancaire[optionnel], adresse[optionnel]

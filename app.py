@@ -53,14 +53,34 @@ def autres():
     category = next((cat for cat in data['categories'] if cat['name'] == 'Autres'), None)
     return render_template('produits.html', category=category)
 
-#TODO : Add a route to display the product details
+'''
+
+    CART IMPLEMENTATION
+    
+    obligation to be logged in to add to cart
+    add to cart: add a dict(tuple:number) (category_id, product_id): quantity to the user's cart
+    remoove product from database + cart when bought
+
+'''
+
+
+
+
+
 #TODO : implement the cart (add to it + see it + remove from it + buy)
-#TODO : implement the user account (register + login + logout + see his sales history)
+#TODO : Add a route to display the product details
+#TODO : Edit the display of the products so its smoother
+#TODO : implement the user account (sales history; account balance; address; credit card number; email; password; username; cart; products bought; product in shipping)
+#TODO implement the community page (chat, sell from user to user => possibility to sell to the website)
 
 
 @app.route('/contact')
 def contact():
     return render_template('contact.html')
+
+@app.route('/communaute')
+def communaute():
+    return render_template('communaute.html')
 
 
 
