@@ -6,52 +6,26 @@
     <h1 class="title">{{ category.name }}</h1>
     <div class="product-grid">
         {% for product in category.products %}
-    <div class="product-item">
-        <h3>{{ product.name }}</h3>
-        <img src="{{ url_for('static', filename=product.image) }}" alt="{{ product.name }}">
-        <p>Description: {{ product.description }}</p>
-        {% if 'quantity' in product %}
-            <p>Quantité: {{ product.quantity }}</p>
-        {% endif %}
-        <p>Vendeur: {{ product.vendor }}</p>
-        <p>Temps de livraison: {{ product.delivery_time }}</p>
-        <p>Prix: {{ product.price }} €</p>
-
-        <form id="add-to-cart-form-{{ product.id }}" method="post">
-            <input type="hidden" name="category_id" value="{{ category.id }}">
-            <input type="hidden" name="product_id" value="{{ product.id }}">
-            <input type="hidden" name="name" value="{{ product.name }}">
-            <input type="hidden" name="image" value="{{ product.image }}">
-            <label for="quantity-{{ product.id }}">Quantity:</label>
-            <input type="number" id="quantity-{{ product.id }}" name="quantity" value="1" min="1">
-            <button type="button" onclick="addToCart({{ product.id }})">Ajouter au panier</button>
-        </form>
+            <div class="product-item">
+                <a href="{{ url_for('product_details', category_name=category.name, product_id=product.id) }}" class="product-link">
+                    <h3>{{ product.name }}</h3>
+                    <img src="{{ url_for('static', filename=product.image) }}" alt="{{ product.name }}">
+                    {% if 'quantity' in product %}
+                        <p>Quantité: {{ product.quantity }}</p>
+                    {% endif %}
+                    <p>Temps de livraison: {{ product.delivery_time }}</p>
+                    <p>Prix: {{ product.price }} €</p>
+                </a>
+                <form id="add-to-cart-form-{{ product.id }}" method="post">
+                    <input type="hidden" name="category_id" value="{{ category.id }}">
+                    <input type="hidden" name="product_id" value="{{ product.id }}">
+                    <input type="hidden" name="name" value="{{ product.name }}">
+                    <input type="hidden" name="image" value="{{ product.image }}">
+                    <label for="quantity-{{ product.id }}">Quantité:</label>
+                    <input type="number" id="quantity-{{ product.id }}" name="quantity" value="1" min="1">
+                    <button type="button" class="add-to-cart-btn" onclick="addToCart({{ product.id }})">Ajouter au panier</button>
+                </form>
+            </div>
+        {% endfor %}
     </div>
-{% endfor %}
-    </div>
-
-
-
-    <script>
-        function addToCart(productId) {
-            const form = document.getElementById(`add-to-cart-form-${productId}`);
-            const formData = new FormData(form);
-
-            fetch('{{ url_for('add_to_cart') }}', {
-                method: 'POST',
-                body: formData
-            })
-            .then(response => response.json())
-            .then(data => {
-                if (data.success) {
-                    //alert('Item added to cart');
-                    location.reload();  // Reload the current page
-                } else {
-                    //alert('Error: ' + data.message);
-                    alert('Erreur: Veuillez vous connecter pour ajouter des articles à votre panier.');
-                }
-            })
-            .catch(error => console.error('Error:', error));
-        }
-    </script>
 {% endblock %}

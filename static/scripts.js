@@ -68,3 +68,23 @@ document.addEventListener('DOMContentLoaded', function() {
         .catch(error => console.error('Error:', error));
     });
 });
+
+
+function addToCart(productId) {
+    const form = document.getElementById(`add-to-cart-form-${productId}`);
+    const formData = new FormData(form);
+
+    fetch('/add_to_cart', {
+        method: 'POST',
+        body: formData
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.success) {
+            location.reload();  // Reload the current page
+        } else {
+            alert('Erreur: ' + data.message);
+        }
+    })
+    .catch(error => console.error('Error:', error));
+}

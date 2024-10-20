@@ -14,16 +14,22 @@ def utility_processor():
             data = load_data()
             cart_items = []
             for key, quantity in user['cart'].items():
-                category_id, product_id = map(int, key.split('_'))
-                category = next((cat for cat in data['categories'] if cat['id'] == category_id), None)
-                if category:
-                    product = next((prod for prod in category['products'] if prod['id'] == product_id), None)
-                    if product:
-                        cart_items.append({
-                            'name': product['name'],
-                            'image': product['image'],
-                            'quantity': quantity
-                        })
+                if key:  # Ensure the key is not empty
+                    try:
+                        category_id, product_id = map(int, key.split('_'))
+                        category = next((cat for cat in data['categories'] if cat['id'] == category_id), None)
+                        if category:
+                            product = next((prod for prod in category['products'] if prod['id'] == product_id), None)
+                            if product:
+                                cart_items.append({
+                                    'name': product['name'],
+                                    'image': product['image'],
+                                    'quantity': quantity,
+                                    'category_name': category['name'],
+                                    'product_id': product_id
+                                })
+                    except ValueError:
+                        continue  # Skip invalid keys
             return cart_items
         return []
     return dict(get_user_cart=get_user_cart)
@@ -78,6 +84,13 @@ def autres():
     category = next((cat for cat in data['categories'] if cat['name'] == 'Autres'), None)
     return render_template('produits.html', category=category)
 
+@app.route('/<category_name>/<product_id>')
+def product_details(category_name, product_id):
+    data = load_data()
+    category = next((cat for cat in data['categories'] if cat['name'] == category_name), None)
+    product = next((prod for prod in category['products'] if prod['id'] == int(product_id)), None)
+    return render_template('product_details.html', product=product, category=category)
+
 '''
 
     CART IMPLEMENTATION
@@ -93,8 +106,8 @@ def add_to_cart():
     if 'username' not in session:
         return json.dumps({'success': False, 'message': 'User not logged in'}), 401, {'ContentType': 'application/json'}
 
-    category_id = request.form['category_id']
-    product_id = request.form['product_id']
+    category_id = int(request.form['category_id'])
+    product_id = int(request.form['product_id'])
     quantity = int(request.form['quantity'])
 
     users = load_users()
@@ -109,13 +122,21 @@ def add_to_cart():
         else:
             user['cart'][cart_item] = quantity
 
-        save_users(users)
-        return json.dumps({'success': True, 'message': 'Item added to cart'}), 200, {'ContentType': 'application/json'}
-    else:
-        return json.dumps({'success': False, 'message': 'User not found'}), 404, {'ContentType': 'application/json'}
+        # Vérifier la quantité en stock sans la décrémenter
+        data = load_data()
+        category = next((cat for cat in data['categories'] if cat['id'] == category_id), None)
+        if category:
+            product = next((prod for prod in category['products'] if prod['id'] == product_id), None)
+            if product:
+                if 'quantity' not in product or product['quantity'] >= quantity:
+                    save_users(users)
+                    return json.dumps({'success': True, 'message': 'Item added to cart'}), 200, {'ContentType': 'application/json'}
+                else:
+                    return json.dumps({'success': False, 'message': 'Not enough stock available'}), 400, {'ContentType': 'application/json'}
+    return json.dumps({'success': False, 'message': 'User not found'}), 404, {'ContentType': 'application/json'}
 
 
-
+#TODO l'achat ajoute des item livrer ou en livraison avc une date d'achat
 #TODO : implement the cart (add to it + see it + remove from it + buy)
 #TODO : Add a route to display the product details
 #TODO : Edit the display of the products so its smoother

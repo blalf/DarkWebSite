@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+{% block title %}DarkWebSite | {{ product.name }}{% endblock %}
+
+{% block content %}
+    <h1 class="title">{{ product.name }}</h1>
+    <div class="product-detail">
+        <img src="{{ url_for('static', filename=product.image) }}" alt="{{ product.name }}">
+        <div>
+            <p><strong>Description:</strong> {{ product.description }}</p>
+            <p><strong>Vendeur:</strong> {{ product.vendor }}</p>
+            <p><strong>Temps de livraison:</strong> {{ product.delivery_time }}</p>
+            <p><strong>Prix:</strong> {{ product.price }} €</p>
+            {% if 'quantity' in product %}
+                <p><strong>Quantité:</strong> {{ product.quantity }}</p>
+            {% endif %}
+            <form id="add-to-cart-form-{{ product.id }}" method="post">
+                <input type="hidden" name="category_id" value="{{ category.id }}">
+                <input type="hidden" name="product_id" value="{{ product.id }}">
+                <input type="hidden" name="name" value="{{ product.name }}">
+                <input type="hidden" name="image" value="{{ product.image }}">
+                <label for="quantity-{{ product.id }}">Quantité:</label>
+                <input type="number" id="quantity-{{ product.id }}" name="quantity" value="1" min="1">
+                <button type="button" onclick="addToCart({{ product.id }})">Ajouter au panier</button>
+            </form>
+        </div>
+    </div>
+{% endblock %}
