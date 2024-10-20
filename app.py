@@ -58,6 +58,11 @@ def autres():
 #TODO : implement the user account (register + login + logout + see his sales history)
 
 
+@app.route('/contact')
+def contact():
+    return render_template('contact.html')
+
+
 
 
 @app.route('/register', methods=['GET', 'POST'])

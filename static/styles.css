@@ -283,3 +283,32 @@ a:hover {
     font-size: 1.2em; /* Increase the font size */
     text-shadow: 1px 1px 2px #000; /* Add a text shadow */
 }
+
+
+/* styles.css */
+.creator {
+    border: 1px solid #444; /* Darker border to match the gray theme */
+    padding: 20px;
+    margin: 20px 0;
+    border-radius: 10px;
+    background-color: #3a3a3a; /* Darker gray background */
+    color: #a3a3a3; /* Light gray text color */
+}
+
+.creator h2 {
+    color: #fff; /* White color for the headings */
+    margin-bottom: 10px;
+}
+
+.creator p {
+    margin: 5px 0;
+}
+
+.creator a {
+    color: #82629b; /* Violet color for links */
+    text-decoration: none;
+}
+
+.creator a:hover {
+    text-decoration: underline;
+}
