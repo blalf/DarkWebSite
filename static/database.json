@@ -14,7 +14,9 @@
             "username": "test",
             "password": "test",
             "email": "",
-            "cart": {},
+            "cart": {
+                "1_2": 2
+            },
             "credit_card_number": "17s",
             "account_balance": 0,
             "address": "",
@@ -38,6 +40,21 @@
             "credit_card_number": "3311 3313 3245 25",
             "account_balance": 0,
             "address": "inconnue",
+            "sales": []
+        },
+        {
+            "username": "GaelLeBoss",
+            "password": "gael",
+            "email": "",
+            "cart": {
+                "1_2": 5,
+                "2_3": 6,
+                "4_8": 4,
+                "5_10": 1
+            },
+            "credit_card_number": "1111 2222 3333 4444",
+            "account_balance": 0,
+            "address": "",
             "sales": []
         }
     ]

@@ -174,7 +174,7 @@ def register():
             "username": username,
             "password": password,
             "email": email,
-            "cart": [],
+            "cart": {},
             "credit_card_number": credit_card_number,
             "account_balance": 0,
             "address": address,
